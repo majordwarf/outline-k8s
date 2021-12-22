@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: outline
+  namespace: outline
+spec:
+  selector:
+    matchLabels:
+      app: outline
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: outline
+    spec:
+      containers:
+        - name: outline
+          image: outlinewiki/outline:latest
+          command:
+            [
+              "sh",
+              "-c",
+              "yarn sequelize:migrate --env production-ssl-disabled && yarn start",
+            ]
+          envFrom:
+            - configMapRef:
+                name: outline
+            - secretRef:
+                name: outline
+          ports:
+            - containerPort: 80

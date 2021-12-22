@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: outline
+  namespace: outline
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  tls:
+    - hosts:
+        - outline.smallcase.com
+      secretName: outline-tls
+  rules:
+    - host: wiki.your-domain.tld
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: outline
+              servicePort: 80

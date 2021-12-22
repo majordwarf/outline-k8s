@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: outline
+  namespace: outline
+data:
+  AWS_REGION: ap-south-1
+  AWS_S3_ACL: private
+  AWS_S3_FORCE_PATH_STYLE: "true"
+  AWS_S3_UPLOAD_BUCKET_NAME: wiki
+  AWS_S3_UPLOAD_BUCKET_URL: http://localhost:9000
+  AWS_S3_UPLOAD_MAX_SIZE: "26214400"
+  CDN_URL: ""
+  DATABASE_URL: mysql-db-svc.outline.svc
+  DATABASE_URL_TEST: postgres://outline:Outline123@localhost:5432/outline-test
+  DEBUG: cache,presenters,events,emails,mailer,utils,multiplayer,server,services
+  DEFAULT_LANGUAGE: en_US
+  ENABLE_UPDATES: "true"
+  FORCE_HTTPS: "true"
+  GOOGLE_ALLOWED_DOMAINS: smallcase.com
+  GOOGLE_ANALYTICS_ID: ""
+  PGSSLMODE: disable
+  PORT: "80"
+  REDIS_URL: redis://localhost:6379
+  SENTRY_DSN: ""
+  SLACK_MESSAGE_ACTIONS: "true"
+  SMTP_FROM_EMAIL: infra@smallcase.com
+  SMTP_HOST: smtp.your-mail-provider.tld
+  SMTP_PORT: "587"
+  SMTP_REPLY_EMAIL: infra@smallcase.com
+  SMTP_USERNAME: infra@smallcase.com
+  TEAM_LOGO: https://www.smallcase.com/static/svgs/logo-full.svg
+  URL: https://outline.smallcase.com
